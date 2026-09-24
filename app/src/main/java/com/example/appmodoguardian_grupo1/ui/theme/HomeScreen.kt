@@ -21,7 +21,7 @@ import androidx.compose.material3.TopAppBar
 fun HomeScreen() {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Mi App Kotlin") })
+            TopAppBar(title = { Text("Modo Guardian") })
         }
     ) { innerPadding ->
         Column(
@@ -48,7 +48,7 @@ fun HomeScreen() {
     }
 }
 
-// Ejecutable de para desplegar el mobil
+// Ejecutable de para desplegar el movil
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
