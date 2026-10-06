@@ -1,4 +1,4 @@
-package com.example.appmodoguardian_grupo1.ui.theme
+package com.example.appmodoguardian_grupo1.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import com.example.appmodoguardian_grupo1.R
 // Estructura del Home page
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController) {
+fun LogScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Modo Guardian") })
@@ -32,6 +32,11 @@ fun HomeScreen(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             Text(text = "¡Bienvenido!")
+            Button(
+                onClick = { navController.navigate("login") }
+            ) {
+                Text("Iniciar Sesión")
+            }
             Button(onClick = { navController.navigate("registro") }) {
                 Text("Ir a Registro")
             }

@@ -5,9 +5,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.appmodoguardian_grupo1.ui.theme.HomeScreen // Asegúrate de que coincida con el paquete de tu HomeScreen
+import com.example.appmodoguardian_grupo1.ui.screen.LogScreen
+import com.example.appmodoguardian_grupo1.ui.screen.LoginScreen
+import com.example.appmodoguardian_grupo1.ui.screen.HomeScreen
 import com.example.appmodoguardian_grupo1.ui.screen.RegistroScreen
 import com.example.appmodoguardian_grupo1.ui.screen.ResumenScreen
+import com.example.appmodoguardian_grupo1.ui.screen.ProfileScreen
 import com.example.appmodoguardian_grupo1.viewmodel.UsuarioViewModel
 
 @Composable
@@ -17,11 +20,30 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = "home" // Ahora la app inicia en la pantalla Home
+        startDestination = "log" // 1. La app abre en la bienvenida (LogScreen)
     ) {
-        composable("home") {
-            HomeScreen(navController = navController)
+        // 1. Bienvenida / Selección
+        composable("log") {
+            LogScreen(navController = navController)
         }
+
+        // 2. Formulario de Autenticación
+        composable("login") {
+            LoginScreen(
+                navController = navController,
+                viewModel = usuarioViewModel
+            )
+        }
+
+        // 3. Pantalla Principal tras validar credenciales
+        composable("home") {
+            HomeScreen(
+                navController = navController,
+                viewModel = usuarioViewModel
+            )
+        }
+
+        // Otras pantallas secundarias
         composable("registro") {
             RegistroScreen(
                 navController = navController,
@@ -32,6 +54,12 @@ fun AppNavigation() {
             ResumenScreen(
                 navController = navController,
                 viewModel = usuarioViewModel
+            )
+        }
+        composable("perfil") {
+            ProfileScreen(
+                navController = navController,
+                usuarioViewModel = usuarioViewModel
             )
         }
     }

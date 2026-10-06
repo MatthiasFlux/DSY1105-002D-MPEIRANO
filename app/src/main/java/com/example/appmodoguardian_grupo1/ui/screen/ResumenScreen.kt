@@ -42,6 +42,12 @@ fun ResumenScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Botón para ir a Perfil
+        Button(onClick = { navController.navigate("perfil") }) {
+            Text("Ir a Perfil")
+        }
+
+        // Botón para regresar al Inicio
         Button(onClick = { navController.popBackStack("home", inclusive = false) }) {
             Text("Volver al Inicio")
         }

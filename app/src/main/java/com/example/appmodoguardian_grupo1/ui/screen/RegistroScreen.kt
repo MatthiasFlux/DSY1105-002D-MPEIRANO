@@ -110,6 +110,7 @@ fun RegistroScreen(
                     navController.navigate(route = "resumen")
                 }
             },
+            enabled = estado.aceptaTerminos,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Registrar")
