@@ -114,5 +114,14 @@ fun RegistroScreen(
         ) {
             Text(text = "Registrar")
         }
+
+        //Botón: volver
+        Button(
+            onClick = { navController.popBackStack()
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Volver")
+        }
     }
 }

@@ -4,21 +4,21 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.example.appmodoguardian_grupo1.R
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
 
-//Estructura del Home page
+// Estructura del Home page
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Modo Guardian") })
@@ -32,8 +32,8 @@ fun HomeScreen() {
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             Text(text = "¡Bienvenido!")
-            Button(onClick = { /* acción futura */ }) {
-                Text("Presióname")
+            Button(onClick = { navController.navigate("registro") }) {
+                Text("Ir a Registro")
             }
             // Insercion de imagen logo desde carpeta res en el projecto
             Image(
@@ -48,9 +48,3 @@ fun HomeScreen() {
     }
 }
 
-// Ejecutable de para desplegar el movil
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    HomeScreen()
-}
